@@ -11,12 +11,6 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="header_inner">FashionablyLate</div>
-    </header>
-
-    <main>
-        @yield('content')
-    </main>
+    @yield('content')
 </body>
 </html>
