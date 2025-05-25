@@ -1,3 +1,7 @@
+body {
+    font-family: Inika, serif;
+}
+
 .header_inner {
     height: 100px;
     line-height: 100px;
@@ -5,5 +9,4 @@
     font-size: 40px;
     color: #8B7969;
     border-bottom: 1px solid #E0DFDE;
-    font-family: Inika;
 }
