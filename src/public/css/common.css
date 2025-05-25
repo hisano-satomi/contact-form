@@ -1,0 +1,9 @@
+.header_inner {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 40px;
+    color: #8B7969;
+    border-bottom: 1px solid #E0DFDE;
+    font-family: Inika;
+}
