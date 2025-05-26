@@ -8,7 +8,21 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('thanks');
+        return view('index');
     }
     
+    public function confirm(Request $request)
+    {
+        $contact = $request->all();
+
+        return view('confirm', compact('contact'));
+    }
+
+    public function store(Request $request)
+    {
+        $contact = $request->all();
+        Contact::create($contact);
+        
+        return view('thanks');
+    }
 }
