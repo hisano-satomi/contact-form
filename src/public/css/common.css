@@ -10,3 +10,15 @@ body {
     color: #8B7969;
     border-bottom: 1px solid #E0DFDE;
 }
+
+.content-title {
+    text-align: center;
+    font-size: 35px;
+    color: #8B7969;
+    font-weight: normal;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+}

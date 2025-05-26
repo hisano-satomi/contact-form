@@ -13,7 +13,7 @@
     <h1 class="content-title">Contact</h1>
 
     <div class="content">
-        <form class="contact-form" action="" method="POST">
+        <form action="" method="POST">
         @csrf
             <table class="contact-table">
                 <tr class="contact-table__row-name">
