@@ -13,6 +13,6 @@ class ContactsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }
