@@ -13,7 +13,7 @@
     <h1 class="content-title">Confirm</h1>
 
     <div class="content">
-        <form  action="" method="POST">
+        <form  action="store" method="POST">
         @csrf
             <table class="confirm-table">
                 <tr class="confirm-table__row">

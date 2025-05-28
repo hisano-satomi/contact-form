@@ -13,7 +13,7 @@ class ContactController extends Controller
         return view('index');
     }
     
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
         $contact = $request->all();
 
