@@ -18,35 +18,35 @@
             <table class="confirm-table">
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お名前</th>
-                    <td>{{ old('name') }} {{ old('first-Name') }}</td>
+                    <td>{{ $contact['last_name'] }} {{ $contact['first_name'] }}</td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">性別</th>
-                    <td>{{ old('gender') }}</td>
+                    <td>{{ $contact['gender'] }}</td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">メールアドレス</th>
-                    <td>{{ old('email') }}</td>
+                    <td>{{ $contact['email'] }}</td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">電話番号</th>
-                    <td>{{ old('tel') }}</td>
+                    <td>{{ $contact['tel1'] }}-{{ $contact['tel2'] }}-{{ $contact['tel3'] }}</td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">住所</th>
-                    <td>{{ old('address') }}</td>
+                    <td>{{ $contact['address'] }}</td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">建物名</th>
-                    <td>{{ old('building') }}</td>
+                    <td>{{ $contact['building'] }}</td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせの種類</th>
-                    <td>{{ old('category') }}</td>
+                    <td>{{ $category['content'] }}</td>
                 </tr>
                 <tr class="confirm-table__row">
                     <th class="confirm-table__header">お問い合わせ内容</th>
-                    <td>{{ old('content') }}</td>
+                    <td>{{ $contact['detail'] }}</td>
                 </tr>
             </table>
             <div class="confirm-button">

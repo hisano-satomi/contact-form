@@ -83,7 +83,9 @@
                     <td class="contact-table__item">
                         <select class="contact-table__select" id="category" name="category_id">
                             <option value="">選択してください</option>
-                            @foreach 
+                            @foreach ($categories as $category)
+                                <option value="{{ $category['id'] }}">{{ $category['content'] }}</option>
+                            @endforeach
                         </select>
                         @error('category_id')<div class="contact-error">{{ $message }}</div>@enderror
                     </td>

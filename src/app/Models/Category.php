@@ -9,7 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    purotected $fillable = [
+    protected $fillable = [
         'content',
     ];
 
