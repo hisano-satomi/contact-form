@@ -28,11 +28,11 @@
                 <tr>
                     <th class="contact-table__header">性別<span class="contact-form--red">※</span></th>
                     <td class="contact-table__item">
-                        <input type="radio" id="male" name="gender" value="男性" {{ old('gender', '男性') == '男性' ? 'checked' : '' }}>
+                        <input type="radio" id="male" name="gender" value="1" {{ old('gender', '1') == '1' ? 'checked' : '' }}>
                         <label class="contact-table__label-gender" for="male">男性</label>
-                        <input type="radio" id="female" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}>
+                        <input type="radio" id="female" name="gender" value="2" {{ old('gender') == '2' ? 'checked' : '' }}>
                         <label class="contact-table__label-gender" for="female">女性</label>
-                        <input type="radio" id="others" name="gender" value="その他" {{ old('gender') == 'その他' ? 'checked' : '' }}>
+                        <input type="radio" id="others" name="gender" value="3" {{ old('gender') == '3' ? 'checked' : '' }}>
                         <label class="contact-table__label-gender" for="others">その他</label>
                         @error('gender')<div class="contact-error">{{ $message }}</div>@enderror
                     </td>
@@ -56,7 +56,7 @@
                         <input class="contact-table__input-tel" type="tel" id="tel2" name="tel2" maxlength="5" placeholder="1234" value="{{ old('tel2') }}">
                         -
                         <input class="contact-table__input-tel" type="tel" id="tel3" name="tel3" maxlength="5" placeholder="5678" value="{{ old('tel3') }}">
-                        @error('tel')<div class="contact-error">{{ $message }}</div>@enderror
+                        @error('tel1')<div class="contact-error">{{ $message }}</div>@enderror
                     </td>
                 </tr>
                 <tr>

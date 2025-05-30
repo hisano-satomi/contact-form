@@ -18,7 +18,7 @@
     border-bottom: #E0DFDE 1px solid;
 }
 
-.confirm-table td {
+.confirm-table__item {
     color: #8B7969;
     font-size: 20px;
     padding-left: 40px;
