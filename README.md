@@ -35,7 +35,7 @@ php artisan db:seed
 ・Larave8.78
 ・MySQL8.0.26
 ## ER図
-![ER図](design/er_diagram.png)
+![ER図](src/design/er_diagram.png)
 ## URL
 ・開発環境：http://localhost:86/
 ・phpMyAdmin：http://localhost:8086/
