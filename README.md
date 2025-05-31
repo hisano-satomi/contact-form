@@ -31,11 +31,11 @@ php artisan migrate
 php artisan db:seed
 ```
 ## 使用技術(実行環境)
-・PHP7.4.9
-・Larave8.78
+・PHP7.4.9  
+・Larave8.78  
 ・MySQL8.0.26
 ## ER図
 ![ER図](src/design/er_diagram.png)
 ## URL
-・開発環境：http://localhost:86/
-・phpMyAdmin：http://localhost:8086/
+・開発環境：http://localhost/  
+・phpMyAdmin：http://localhost:8080/
