@@ -43,38 +43,47 @@
                 </div>
                 <div class="search-form__actions">
                     <button type="submit">検索</button>
+                    <a href="" class="reset-btn">リセット</a>
                 </div>
             </form>
             <div class="contact-list">
                 <div class="contact-export"></div>
-                <div class="contact-nav"></div>
-                <table class="contact-table">
-                    <thead>
-                        <tr>
-                            <th>お名前</th>
-                            <th>性別</th>
-                            <th>メールアドレス</th>
-                            <th>お問い合わせの種類</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($contacts as $contact)
+                
+                @if($contacts->count())
+                    <table class="contact-table">
+                        <thead>
                             <tr>
-                                <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
-                                <td>
-                                    @if($contact->gender == 1)
-                                        男性
-                                    @elseif($contact->gender == 2)
-                                        女性
-                                    @elseif($contact->gender == 3)
-                                        その他
-                                    @endif
-                                </td>
-                                <td>{{ $contact->email }}</td>
-                                <td>{{ $contact->category->content ?? '' }}</td>
+                                <th>お名前</th>
+                                <th>性別</th>
+                                <th>メールアドレス</th>
+                                <th>お問い合わせの種類</th>
                             </tr>
-                        @endforeach
-                    </tbody>
+                        </thead>
+                        <tbody>
+                            @foreach($contacts as $contact)
+                                <tr>
+                                    <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
+                                    <td>
+                                        @if($contact->gender == 1)
+                                            男性
+                                        @elseif($contact->gender == 2)
+                                            女性
+                                        @elseif($contact->gender == 3)
+                                            その他
+                                        @endif
+                                    </td>
+                                    <td>{{ $contact->email }}</td>
+                                    <td>{{ $contact->category->content ?? '' }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <div class="pagination-wrapper">
+                        {{ $contacts->appends(request()->query())->links() }}
+                    </div>
+                @else
+                    <p>データがありません。</p>
+                @endif
             </div>
         </div>
     </div>
