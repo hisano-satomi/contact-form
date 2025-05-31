@@ -19,4 +19,15 @@ Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/thanks', [ContactController::class, 'store']);
 
-Route::get('/admin', [ManagementController::class, 'index']);
+// 認証ルート
+Route::get('/register', [ManagementController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [ManagementController::class, 'register']);
+Route::get('/login', [ManagementController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [ManagementController::class, 'login']);
+Route::post('/logout', [ManagementController::class, 'logout'])->name('logout');
+
+// 管理者用ルートをミドルウェアで保護
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [ManagementController::class, 'index'])->name('admin');
+    Route::get('/admin/export', [ManagementController::class, 'export'])->name('admin.export');
+});

@@ -15,7 +15,7 @@ class ContactFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => $this->faker->numberBetween(1, 30),
+            'category_id' => $this->faker->numberBetween(1, 5),  // CategorySeederで作成したID範囲に修正
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'gender' => $this->faker->numberBetween(1, 3),

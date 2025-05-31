@@ -6,7 +6,15 @@
 
 @section('content')
 <header class="header">
-    <div class="header_inner">FashionablyLate</div>
+    <div class="header__content">
+        <div class="header__logo">FashionablyLate</div>
+        <div class="header__nav">
+            <form action="/logout" method="POST">
+                @csrf
+                <button type="submit" class="logout-btn">ログアウト</button>
+            </form>
+        </div>
+    </div>
 </header>
 
 <main>
@@ -47,7 +55,9 @@
                 </div>
             </form>
             <div class="contact-list">
-                <div class="contact-export"></div>
+                <div class="contact-export">
+                    <a href="{{ route('admin.export') }}" class="export-btn">エクスポート</a>
+                </div>
                 
                 @if($contacts->count())
                     <table class="contact-table">

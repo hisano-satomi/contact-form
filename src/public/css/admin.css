@@ -1,13 +1,167 @@
+/* admin.css */
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #fefdfb;
+    color: #5c4432;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.header__content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #7a5c42;
+}
+
+.content-title {
+    text-align: center;
+    font-size: 24px;
+    margin: 30px 0;
+    color: #7a5c42;
+}
+
 .admin-content {
-    width: 1183px;
-    height: 570px;
+    width: 90%;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .search-form {
+    margin-bottom: 30px;
+    background-color: #f8f3ef;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.search-form__item {
+    display: inline-block;
+    margin: 10px 5px;
+}
+
+.search-form__item input,
+.search-form__item select {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fffdf9;
+}
+
+.search-form__actions {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.search-form__actions button,
+.reset-btn {
+    padding: 8px 16px;
+    background-color: #7a5c42;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.reset-btn {
+    background-color: #d9c6b5;
+    color: #5c4432;
+}
+
+.contact-table {
     width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.contact-table thead {
+    background-color: #7a5c42;
+    color: white;
+}
+
+.contact-table th,
+.contact-table td {
+    border: 1px solid #eee;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.contact-table tbody tr:nth-child(even) {
+    background-color: #fcf9f7;
+}
+
+.contact-table tbody tr:hover {
+    background-color: #f0e8e0;
+}
+
+.pagination-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination-wrapper nav {
+    display: inline-block;
+}
+
+.pagination-wrapper .page-link,
+.pagination-wrapper .page-item {
+    display: inline-block;
+    margin: 0 3px;
+    padding: 6px 12px;
+    border: 1px solid #d4c3b2;
+}
+
+.contact-export {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.export-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #7a5c42;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.export-btn:hover {
+    background-color: #654c37;
+    color: white;
+}
+
+.logout-btn {
+    padding: 8px 20px;
+    background-color: #d4c3b2;
+    color: #5c4432;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #7a5c42;
+    color: #fff;
 }
