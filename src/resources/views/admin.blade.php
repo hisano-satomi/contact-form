@@ -2,6 +2,49 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 5px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        color: black;
+    }
+
+    .detail-btn {
+        color: #2d88ff;
+        text-decoration: underline;
+        cursor: pointer;
+        border: none;
+        background: none;
+        padding: 0;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -84,6 +127,18 @@
                                     </td>
                                     <td>{{ $contact->email }}</td>
                                     <td>{{ $contact->category->content ?? '' }}</td>
+                                    <td>
+                                        <button type="button" 
+                                                class="detail-btn" 
+                                                data-name="{{ $contact->last_name }} {{ $contact->first_name }}"
+                                                data-gender="{{ $contact->gender }}"
+                                                data-email="{{ $contact->email }}"
+                                                data-category="{{ $contact->category->content ?? '' }}"
+                                                data-detail="{{ $contact->detail }}"
+                                                onclick="showModal(this)">
+                                            詳細
+                                        </button>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -98,4 +153,70 @@
         </div>
     </div>
 </main>
+
+<!-- 詳細モーダル -->
+<div id="detailModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>お問い合わせ詳細</h2>
+        <table>
+            <tr>
+                <th>お名前</th>
+                <td id="modalName"></td>
+            </tr>
+            <tr>
+                <th>性別</th>
+                <td id="modalGender"></td>
+            </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <td id="modalEmail"></td>
+            </tr>
+            <tr>
+                <th>お問い合わせの種類</th>
+                <td id="modalCategory"></td>
+            </tr>
+            <tr>
+                <th>お問い合わせ内容</th>
+                <td id="modalDetail"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+@endsection
+
+@section('js')
+<script>
+    function showModal(button) {
+        const modal = document.getElementById('detailModal');
+        const gender = {
+            '1': '男性',
+            '2': '女性',
+            '3': 'その他'
+        };
+
+        // モーダルにデータを設定
+        document.getElementById('modalName').textContent = button.dataset.name;
+        document.getElementById('modalGender').textContent = gender[button.dataset.gender] || '';
+        document.getElementById('modalEmail').textContent = button.dataset.email;
+        document.getElementById('modalCategory').textContent = button.dataset.category;
+        document.getElementById('modalDetail').textContent = button.dataset.detail;
+
+        modal.style.display = 'block';
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('detailModal');
+        modal.style.display = 'none';
+    }
+
+    // モーダルの外側をクリックしたら閉じる
+    window.onclick = function(event) {
+        const modal = document.getElementById('detailModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+</script>
 @endsection

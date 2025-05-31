@@ -9,9 +9,16 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\UserRequest;
 
 class ManagementController extends Controller
 {
+    public function __construct()
+    {
+        // admin, export メソッドにのみ認証を必要とする
+        $this->middleware('auth')->only(['index', 'export']);
+    }
+
     // 登録フォーム表示
     public function showRegistrationForm()
     {
@@ -19,18 +26,8 @@ class ManagementController extends Controller
     }
 
     // ユーザー登録処理
-    public function register(Request $request)
+    public function register(UserRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        if ($validator->fails()) {
-            return back()->withErrors($validator)->withInput();
-        }
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
