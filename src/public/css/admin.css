@@ -165,3 +165,71 @@ body {
     background-color: #7a5c42;
     color: #fff;
 }
+
+/* モーダルスタイルの更新 */
+.modal {
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.modal-content th {
+    width: 30%;
+    padding: 15px;
+    text-align: left;
+    background-color: #f8f3ef;
+    border: 1px solid #ddd;
+    color: #7a5c42;
+}
+
+.modal-content td {
+    width: 70%;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+.modal-content h2 {
+    color: #7a5c42;
+    margin: 0 0 20px;
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d4c3b2;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+.detail-btn {
+    color: #2d88ff;
+    text-decoration: underline;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+}
