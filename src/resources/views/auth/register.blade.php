@@ -15,8 +15,15 @@
 <main>
     <h1 class="content-title">Register</h1>
     <div class="register-form">
-        <form class="register-form__content" method="POST" action="{{ route('register') }}">
+        <form class="register-form__content" method="POST" action="/register">
             @csrf
+            @if($errors->any())
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li class="error">{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
             <div class="register-form__row">
                 <label for="name">お名前</label>
                 <input type="text" id="name" name="name" value="{{ old('name') }}" placeholder="例: 山田　太郎" required autofocus>

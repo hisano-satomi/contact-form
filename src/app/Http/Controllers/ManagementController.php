@@ -13,63 +13,64 @@ use App\Http\Requests\UserRequest;
 
 class ManagementController extends Controller
 {
-    public function __construct()
-    {
-        // admin, export メソッドにのみ認証を必要とする
-        $this->middleware('auth')->only(['index', 'export']);
-    }
+    // public function __construct()
+    // {
+    //     // admin, export メソッドにのみ認証を必要とする
+    //     $this->middleware('auth')->only(['index', 'export']);
+    // }
 
     // 登録フォーム表示
-    public function showRegistrationForm()
-    {
-        return view('auth.register');
-    }
+    // public function showRegistrationForm()
+    // {
+    //     return view('auth.register');
+    // }
 
-    // ユーザー登録処理
-    public function register(UserRequest $request)
-    {
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+    // // ユーザー登録処理
+    // public function register(UserRequest $request)
+    // {
+    //     $user = User::create([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'password' => Hash::make($request->password),
+    //     ]);
 
-        Auth::login($user);
-        return redirect()->route('admin');
-    }
+    //     Auth::login($user);
+    //     return redirect()->route('admin');
+        
+    // }
 
     // ログインフォーム表示
-    public function showLoginForm()
-    {
-        return view('auth.login');
-    }
+    // public function showLoginForm()
+    // {
+    //     return view('auth.login');
+    // }
 
     // ログイン処理
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
+    // public function login(Request $request)
+    // {
+    //     $credentials = $request->validate([
+    //         'email' => ['required', 'email'],
+    //         'password' => ['required'],
+    //     ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended(route('admin'));
-        }
+    //     if (Auth::attempt($credentials)) {
+    //         $request->session()->regenerate();
+    //         return redirect()->intended(route('admin'));
+    //     }
 
-        return back()->withErrors([
-            'email' => 'メールアドレスまたはパスワードが正しくありません。',
-        ])->withInput();
-    }
+    //     return back()->withErrors([
+    //         'email' => 'メールアドレスまたはパスワードが正しくありません。',
+    //     ])->withInput();
+    // }
 
     // ログアウト処理
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/login');
-    }
+    // public function logout(Request $request)
+    // {
+    //     Auth::logout();
+    //     $request->session()->invalidate();
+    //     $request->session()->regenerateToken();
+    //     return redirect('/login');
+    // }
 
     public function index(Request $request)
     {

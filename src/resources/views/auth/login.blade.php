@@ -20,10 +20,16 @@
             <div class="login-form__row">
                 <label for="email">メールアドレス</label>
                 <input type="email" id="email" name="email" placeholder="例: test@example.com" required autofocus>
+                @error('email')
+                <div class="error">{{ $message }}</div>
+                @enderror
             </div>
             <div class="login-form__row">
                 <label for="password">パスワード</label>
                 <input type="password" id="password" name="password" placeholder="例: coachtech1106" required>
+                @error('password')
+                <div class="error">{{ $message }}</div>
+                @enderror
             </div>
             <div class="login-form__actions">
                 <button type="submit">ログイン</button>
